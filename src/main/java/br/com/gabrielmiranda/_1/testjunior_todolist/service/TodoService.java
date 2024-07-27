@@ -17,24 +17,24 @@ public class TodoService {
         this.todoRepository = todoRepository;
     }
 
-    List<Todo> create(Todo todo) {
+    public List<Todo> create(Todo todo) {
         todoRepository.save(todo);
         return list();
     }
 
-    List<Todo> list() {
+    public List<Todo> list() {
         Sort sort = Sort.by("priority").descending().and(
                 Sort.by("name").ascending());
         return todoRepository.findAll(sort);
     }
 
-    List<Todo> update(Todo todo) {
+    public List<Todo> update(Todo todo) {
         todoRepository.save(todo);
         return list();
 
     }
 
-    List<Todo> delete(Long id) {
+    public List<Todo> delete(Long id) {
         todoRepository.deleteById(id);
         return list();
     }
